@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/d3-tip.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <title>Vaccination</title>
+</head>
+<body>
+    <div id="main-container">
+        <div>
+            <h1 align="center">UK COVID-19 Vaccines and Deaths</h1>
+            <h2 align="center">Live Vaccine counter</h2>
+            <div id="error" style="display: none"></div>
+            <div id="stats">
+                <div class="stat">
+                    <h2 id="firstDoses">Loading...</h2>
+                    <p>first doses</p>
+                </div><div class="stat">
+                    <h2 id="secondDoses">Loading...</h2>
+                    <p>second doses</p>
+                </div>
+            <p id="source">These are estimates based on data from <a href="https://coronavirus.data.gov.uk/">coronavirus.data.gov.uk</a>, assuming constant rate between 9am-5pm</p>
+            </div>
+            <h6>Wow, that's an astonishing number, and it's growing. The people and the government are doing a great job. But what does this number mean, or in other words, what impact does it have. We might as well combine it with other data, such as the number of deaths.</h6>
+            <h2 align="center">Map the stat by MSOA</h2> <p id="source" align="center">Vaccinated = both first and second vaccinated people, data updated by 5/12</p>
+            <iframe src="VaccMap.html" height="800px" width="100%" frameBorder="0" scrolling="yes"></iframe>
+            
+        </div>
+        <div id="chart-area"></div>
+
+
+    </div>
+
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="d3-tip.js"></script>
+    <script src="newBar.js"></script>
+</body>
+</html>
+
+<style>
+    body {
+        background-color: #F3E2EB;
+        color: #231942;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+        font-size: 125%;
+    }
+
+    #main-container {
+        max-width: 1080px;
+        margin: 0 auto;
+    }
+
+    #main-container > div {
+        margin: 10%;
+    }
+
+    .stat {
+        background: white;
+        color: #231942;
+        width: calc(50% - 46px);
+        display: inline-block;
+        border-radius: 6px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+        padding: 20px;
+    }
+
+    .stat + .stat {
+        margin: 0 0 0 12px;
+    }
+
+    .stat h2,
+    .stat p {
+        margin: 0;
+    }
+
+    #source {
+        font-size: 75%;
+    }
+
+    #source,
+    #source a {
+        color: rgba(5, 1, 16, 0.4)
+    }
+
+    #error {
+        background-color: #EE2E31;
+        color: white;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    }
+    h1 > br {
+        display: none;
+    }
+
+    /* Large screens */
+    @media only screen and (min-width: 1400px) {
+        body {
+            font-size: 150%;
+        }
+    }
+
+    /* Mobile */
+    @media only screen and (max-width: 700px) {
+        .stat {
+            width: auto;
+            display: block;
+        }
+        .stat + .stat {
+            margin: 10px 0 0 0;
+        }
+        h1 > br {
+            display: block;
+        }
+    }
+</style>

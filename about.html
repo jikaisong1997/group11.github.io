@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>About</title>
+	<meta name="description" content="About page with img background" />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fixed,fullscreen,backgrounds,full-screen" />
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" href="css/index_style.css" />
+	<link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+	<link rel="stylesheet" type="text/css" href="css/examples.css" />
+	<style>
+        .main {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #fff;
+                background:#708090 ;
+                /*z-index: 2;*/
+                transition: 0.8s;
+            }
+	/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: 'Oswald', sans-serif;
+		margin:0;
+		padding:0;
+		color:#fff
+	}
+
+	h1.logo
+	{font-size: 2em;}
+
+	p{
+		font-size: 1.5em;
+		font-family: 'Open Sans', sans-serif;
+		color: #fff;
+		margin:0;
+		padding:0;
+	}
+
+	a{
+		width:70%; 
+		margin:0 auto; 
+		font-size: 1.5em; 
+		color: white;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+	}
+
+
+	/* Backgrounds will cover all the section
+	* --------------------------------------- */
+	#section0,
+	#section1,
+	#section2,
+	#section3,
+	#section4,
+	#section5,
+    #slide1,
+    #slide2,
+	#slide3,
+	#slide4{
+		background-size: cover;
+		background-attachment: fixed;
+	}
+
+	/* Defining each sectino background and styles
+	* --------------------------------------- */
+	#section0{
+		background-image: url(./img/resonse.png);
+	}
+	#section0 h1{
+		/*top: 50%;
+		transform: translateY(-50%);
+		position: relative;*/
+        margin-top:40%;
+		font-size: 5em;
+	}
+	#section1{
+		background: color #000;
+		padding: 6% 0 0 0;
+	}	
+	#section2{
+		background-image: url();
+		padding: 6% 0 0 0;
+	}
+	#section4{
+		background-image: url(/CASA0003_Visualisation_Group_7/Website/img/shanghai_conclusion.jpg);
+		padding: 6% 0 0 0;
+	}
+	#section5{
+		background-image: url(/CASA0003_Visualisation_Group_7/Website/img/Shanghai_group.jpg);
+		padding: 6% 0 0 0;
+	}
+	#section4 h1{
+		color: #000;
+	}
+
+
+	/*Adding background for the slides
+	* --------------------------------------- */
+	#slide1{
+		background-image: url(/CASA0003_Visualisation_Group_7/Website/img/Shanghai_people.jpg);
+		padding: 6% 0 0 0;
+	}
+	#slide2{
+		background-image: url(/CASA0003_Visualisation_Group_7/Website/img/Shanghai_economic.jpg);
+		padding: 6% 0 0 0;
+	}
+	#slide3{
+		background-image: url(/CASA0003_Visualisation_Group_7/Website/img/Shanghai_traffic.jpg);
+		padding: 6% 0 0 0;
+	}
+	#slide4{
+		background-image: url(/CASA0003_Visualisation_Group_7/Website/img/Shanghai_landmark.jpg);
+		padding: 6% 0 0 0;
+	}
+        /*Adding text style for each part
+	* --------------------------------------- */
+	img.workflow { 
+		position: absolute;
+		left: 100px;
+		top: 150px
+    }
+
+	h1.workflow{
+		position: absolute;
+		left: 550px;
+		top: 150px;
+		font-size: 2.5em;
+	}
+	p.workflow{
+		position: absolute;
+		left: 750px;
+		top: 250px;
+		font-size: 1em;
+		text-align:left;
+	}
+
+	h1.answer{
+		position: absolute;
+		left:80px;
+		top: 140px;
+		font-size: 4em;
+	}
+
+	p.answer{
+		position: absolute;
+		left:80px;
+		top: 360px;
+		font-size: 1.2em;
+		text-align:left;
+	}
+
+	h1.conclusion{
+		position: absolute;
+		right:200px;
+		top: 120px;
+		font-size: 4.2em;
+		color: #000;
+	}
+	p.conclusion{
+		position: absolute;
+		right:80px;
+		top: 240px;
+		font-size: 1em;
+		text-align:left;
+		color: #000;
+		font-weight:bolder
+	}
+	.column {
+  float: left;
+  width: 25%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 20px 16px;
+  background-color: white;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.container p{
+	color:black
+}
+</style>
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+</head>
+<body>
+ <div class="main">
+ <header>
+          <h1 class="logo" style="color:#fff;"></h1>
+  </header>
+  </div>
+
+    <div id="fullpage">
+        <div class="section " id="section0">
+            <h1 style="width: 70%;margin:0 auto;color:rgb(255, 1, 1);padding-top: 200px;color:#fff;"> Aim of this project</h1>
+            <p style="width:70%; margin:0 auto;"> Do government interventions like lockdowns really help the government to control the spread of the virus? </p>
+        </div>
+        <div class="section" id="section1">
+            <img class="workflow" src="./img/Covid-banner-2.jpeg" alt="workflow" width="500" height="360">
+            <h1 class="workflow" style="width: 70%; margin:0 auto; color:rgb(255, 1, 1)"> Backgrounds</h1>
+            <p class="workflow" style="width:40%; color: #fff;">Ever since COVID-19 starts spreading across the world, many governments took actions to try to stop or slow down the spread of this global pandemic, lockdowns are obviously one of the most frequently used method, the UK government also had several national lockdowns throughout this pandemic try to reduce the number of infections and death. But is it really effective? Let's find in  below three pages</p>
+        </div>
+		
+        <div class="section" id="section3">
+            <div class="slide" id="slide1" >
+				<a href="map1.html">
+				<h1>Global Review</h1>
+				a global map with COVID-19 trends and statistics </a>
+			</div>
+			<div class="slide" id="slide2">
+				<a href="map2.html">
+				<h1>the UK</h1>
+				detailed vaccination map for the United Kingdom</a>
+			</div>
+            <div class="slide" id="slide3">
+				<a href="storytelling.html">
+				<h1>Policy</h1>
+				Mapbox Stroytelling of different policy comparisions</a>
+			</div>
+        </div>
+	<div class="section" id="summary">
+            <h1 class="answer" style="color:#fff">Summary</h1>
+            <p class="answer" style="width:50%; color:#fff">UK, Japan, and Australia, the three-island country we selected in this project, chooses three different level and different style of regulation policies, the levels of infection are also totally different.The UK suggested to 'accept' the virus in the first place, Japan is stuck with a state of emergency, and Australia strongly follows its national plan, but one thing in common is that as new variant appears, and the vaccination level reaches a certain level, all the countries choose to announce or imply that ‘Living with the virus’ is the perceivable future. 
+</p>
+        </div>
+    <div class="menu">
+        <ul>
+            <li><a href="storytelling.html">Policy</a></li>
+            <li><a href="map1.html">UK</a></li>
+            <li ><a href="map2.html">Global</a></li>
+            <li class="active"><a href="about.html">About</a></li>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript" src="js/fullpage.js"></script>
+    <!--<script type="text/javascript" src="js/examples.js"></script>-->
+
+    <script type="text/javascript">
+        if (location.href.indexOf("action=section4") >= 0) {
+            document.getElementById('section4').setAttribute('class', 'section fp-section active fp-completely')
+        }
+        var myFullpage = new fullpage('#fullpage', {
+            verticalCentered: false,
+            //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
+            css3: false
+        });
+        
+    </script>
+</body>
+</html>

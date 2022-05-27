@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Global perspective - Policy Comparison in Storytelling </title>
+    <meta name="Landmark" content="Qiuyu li" />
+    <meta name="description" content="Landmark Page" />
+    <meta name="keywords" content="fullpage,jquery,demo,screen,fixed,fullscreen,backgrounds,full-screen" />
+    <meta name="Resource-type" content="Document" />
+    <link rel="stylesheet" href="css/index_style.css" />
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+    <link rel="stylesheet" type="text/css" href="css/examples.css" />
+    <style>
+
+
+        /* Style for our header texts
+        * --------------------------------------- */
+        h1 {
+            font-size: 4em;
+            font-family: 'Oswald', sans-serif;
+            margin-bottom: 10px;
+            padding: 0;
+            color: #fff
+        }
+
+            h1.logo {
+                font-size: 2em;
+            }
+
+        p {
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        p.note{
+            font-size: 1em;
+            font-family: 'Oswald', sans-serif;
+            color: red;
+            margin: 0;
+            padding: 0;
+            font-weight:bolder
+        }
+        /* background for body
+        * --------------------------------------- */
+        body {
+            padding: 6% 0 0 0;
+            background-size: cover;
+            background-attachment: fixed;
+			background: #708090;
+        }
+    </style>
+    <!--[if IE]>
+        <script type="text/javascript">
+             var console = { log: function() {} };
+        </script>
+    <![endif]-->
+
+    <style>
+        .frame {
+            fill: none;
+            stroke: #000;
+        }
+
+        .axis text {
+            font: 10px sans-serif;
+        }
+
+        .axis line,
+        .axis circle {
+            fill: none;
+            stroke: #ddd;
+            /*stroke-dasharray: 4;*/
+        }
+
+        .axis:last-of-type circle {
+            stroke: steelblue;
+            stroke-dasharray: none;
+        }
+
+        .line {
+            fill: none;
+            stroke: orange;
+            stroke-width: 3px;
+        }
+
+        #chart {
+            text-align: center;
+			font: 10px sans-serif;
+        }
+
+        .chart-title {
+            text-align: center;
+        }
+
+        .tooltip {
+            font: bold 25px Verdana;
+            /*font-family: simsun;*/
+            font-size: 12px;
+            width: 120px;
+            height: auto;
+            color: #555;
+            position: absolute;
+            text-align: left;
+            border-style: solid;
+            border-width: 2px;
+            background-color: white;
+            border-radius: 5px;
+        }
+		
+		.line{
+              float:left;
+             
+}
+		
+.clear{
+    clear:none;
+}
+    </style>
+</head>
+<body>
+
+    <div id="fullpage2">
+        <div>
+            <h1 style="width: 80%; line-height: 40px; margin:0 auto; color:rgb(255, 213, 1);text-align: center; ">
+                Global Overview
+            </h1>
+			
+            <p style="width:80%;  margin:60px auto; "> 
+                
+                
+            </p>
+        </div>
+			 <div class="line" id="first">
+            <iframe height="400px" width="500px" class="embed-responsive-item" src="./src/line_uk.html"
+                    frameborder="no" border="0" marginwidth="10px" marginheight="0" scrolling="no"
+                    allowTransparency="yes" align = "left"></iframe>
+                    
+        </div>
+
+<div class="line" id="second">
+            <iframe height="400px" width="500px" class="embed-responsive-item" src="./src/line_jp.html"
+                    frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"
+                    allowTransparency="yes" align = "middle"></iframe>
+   
+
+        </div>
+<div class="line" id="third">
+            <iframe height="400px"  class="embed-responsive-item" src="./src/line_Au.html"
+                    frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"
+                    allowTransparency="yes" align = "right"></iframe>
+        </div>
+</div>
+        <div class="section" id="section3">
+            <iframe height="800" width="100%" class="embed-responsive-item" src="./src/index.html"
+                    frameborder="no" border="0" marginwidth="0" marginheight="10" scrolling="yes"
+                    allowTransparency="yes"></iframe>
+                    <p class=note style="width:70%;  margin:0 auto;text-indent:1em; ">
+                        
+                     </p>
+        </div>
+
+<div class = "clear">
+    </div>
+    <div class="main" style="background-color:transparent;position:relative;min-height:60px;">
+        <footer>
+            <!-- Scroll down -->
+            <div id="explore">
+                <b></b>
+            </div>
+
+
+        </footer>
+    </div>
+    <div class="menu">
+        <ul>
+            <li  class="active"><a href="storytelling.html">Policy</a></li>
+            <li><a href="map1.html">UK</a></li>
+            <li ><a href="map2.html">Global</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html">Home</a></li>
+
+        </ul>
+    </div>
+
+</body>
+</html>

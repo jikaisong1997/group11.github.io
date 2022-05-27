@@ -1,0 +1,537 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Global</title>
+    <meta name="Global" content="Jikai Song" />
+    <meta name="keywords" content="fullpage,jquery,demo,screen,fixed,fullscreen,backgrounds,full-screen" />
+    <meta name="Resource-type" content="Document" />
+    <link rel="stylesheet" href="css/index_style.css" />
+    <link rel="stylesheet" type="text/css" href="css/fullpage.css" />
+    <link rel="stylesheet" type="text/css" href="css/examples.css" />
+    <style>
+
+
+        /* Style for our header texts
+        * --------------------------------------- */
+        h1 {
+            font-size: 5em;
+            font-family: 'Oswald', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff
+        }
+
+            h1.logo {
+                font-size: 2em;
+            }
+
+        p {
+            font-size: 1em;
+            font-family: 'Open Sans', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        p.note{
+            font-size: 1em;
+            font-family: 'Oswald', sans-serif;
+            color: red;
+            margin: 0;
+            padding: 0;
+            font-weight:bolder
+        }
+
+        /* background for body
+        * --------------------------------------- */
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/CASA0003_Visualisation_Group_7/Website/img/Page_traffic.jpg") fixed center center;
+            padding: 6% 0 0 0;
+            background-size: cover;
+            background-attachment: fixed;
+			background: #708090;
+        }
+
+        iframe {
+            background-color: #708090;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+    </style>
+    <!--[if IE]>
+        <script type="text/javascript">
+             var console = { log: function() {} };
+        </script>
+    <![endif]-->
+    <style>
+        .frame {
+            fill: none;
+            stroke: #000;
+        }
+
+        .axis text {
+            font: 14px sans-serif;
+        }
+
+        .axis line,
+        .axis circle {
+            fill: none;
+            stroke: #ddd;
+            /*stroke-dasharray: 4;*/
+        }
+
+        .axis:last-of-type circle {
+            stroke: steelblue;
+            stroke-dasharray: none;
+        }
+
+        .line {
+            fill: none;
+            stroke: orange;
+            stroke-width: 3px;
+        }
+
+        #chart {
+            text-align: center;
+        }
+
+        .chart-title {
+            text-align: center;
+        }
+
+        .tooltip {
+            font: bold 25px Verdana;
+            /*font-family: simsun;*/
+            font-size: 12px;
+            width: 120px;
+            height: auto;
+            color: #555;
+            position: absolute;
+            text-align: left;
+            border-style: solid;
+            border-width: 2px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            padding: 32px;
+        }
+
+        .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 4px;
+        }
+
+            .column img {
+                margin-top: 8px;
+                vertical-align: middle;
+                width: 100%;
+            }
+
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+
+
+        /* 2021-05-26 start */
+        /*body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            height: 100vh;
+            font-family: "Roboto", sans-serif;
+        }*/
+
+            body .credit {
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                color: #000;
+            }
+
+        body .options {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            overflow: hidden;
+            min-width: 600px;
+            /*max-width: 1120px;*/
+            width: 80%;
+            height: 400px;
+            margin:0 auto;
+        }
+
+        @media screen and (max-width: 718px) {
+            body .options {
+                min-width: 520px;
+            }
+
+                body .options .option:nth-child(5) {
+                    display: none;
+                }
+        }
+
+        @media screen and (max-width: 638px) {
+            body .options {
+                min-width: 440px;
+            }
+
+                body .options .option:nth-child(4) {
+                    display: none;
+                }
+        }
+
+        @media screen and (max-width: 558px) {
+            body .options {
+                min-width: 360px;
+            }
+
+                body .options .option:nth-child(3) {
+                    display: none;
+                }
+        }
+
+        @media screen and (max-width: 478px) {
+            body .options {
+                min-width: 280px;
+            }
+
+                body .options .option:nth-child(2) {
+                    display: none;
+                }
+        }
+
+        body .options .option {
+            position: relative;
+            overflow: hidden;
+            min-width: 110px;
+            margin: 10px;
+            background: var(--optionBackground, var(--defaultBackground, #E6E9ED));
+            background-size: auto 120%;
+            background-position: center;
+            cursor: pointer;
+            transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+        }
+
+            body .options .option:nth-child(1) {
+                --defaultBackground: #ED5565;
+            }
+
+            body .options .option:nth-child(2) {
+                --defaultBackground: #FC6E51;
+            }
+
+            body .options .option:nth-child(3) {
+                --defaultBackground: #FFCE54;
+            }
+
+            body .options .option:nth-child(4) {
+                --defaultBackground: #2ECC71;
+            }
+
+            body .options .option:nth-child(5) {
+                --defaultBackground: #5D9CEC;
+            }
+
+            body .options .option:nth-child(6) {
+                --defaultBackground: #AC92EC;
+            }
+            body .options .option:nth-child(7) {
+                --defaultBackground: #440558;
+            }
+
+            body .options .option.active {
+                flex-grow: 10000;
+                transform: scale(1);
+                max-width: 600px;
+                margin: 0px;
+                border-radius: 40px;
+                background-size: auto 100%;
+                /*&:active {
+           transform:scale(0.9);
+        }*/
+            }
+
+                body .options .option.active .shadow {
+                    box-shadow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+                }
+
+                body .options .option.active .label {
+                    bottom: 20px;
+                    left: 20px;
+                }
+
+                    body .options .option.active .label .info > div {
+                        left: 0px;
+                        opacity: 1;
+                    }
+
+            body .options .option:not(.active) {
+                flex-grow: 1;
+                border-radius: 30px;
+            }
+
+                body .options .option:not(.active) .shadow {
+                    bottom: -40px;
+                    box-shadow: inset 0 -120px 0px -120px black, inset 0 -120px 0px -100px black;
+                }
+
+                body .options .option:not(.active) .label {
+                    bottom: 10px;
+                    left: 10px;
+                }
+
+                    body .options .option:not(.active) .label .info > div {
+                        left: 20px;
+                        opacity: 0;
+                    }
+
+            body .options .option .shadow {
+                position: absolute;
+                bottom: 0px;
+                left: 0px;
+                right: 0px;
+                height: 200px;
+                transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+            }
+
+            body .options .option .label {
+                display: flex;
+                position: absolute;
+                right: 0px;
+                height: 400px;
+                transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+            }
+
+                body .options .option .label .icon {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    min-width: 40px;
+                    max-width: 40px;
+                    height: 40px;
+                    border-radius: 100%;
+                    background-color: white;
+                    color: var(--defaultBackground);
+                }
+
+                body .options .option .label .info {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    margin-left: 10px;
+                    color: white;
+                    white-space: pre;
+                }
+
+                    body .options .option .label .info > div {
+                        position: relative;
+                        transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95), opacity 0.5s ease-out;
+                    }
+
+                    body .options .option .label .info .main {
+                        font-size: 1.2rem;
+                    }
+
+                    body .options .option .label .info .sub {
+                        transition-delay: 0.1s;
+                    }
+        /*2021-05-26 end */
+
+        .title-item-8 {
+            font-size: 28px;
+            color: red;
+            text-align: left;
+            border-left: 2px solid red;
+            padding-left: 6px;
+            font-weight: bolder;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .section-8-1 p {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .section-8-1 td {
+            padding: 8px 16px;
+        }
+        .lft-title-item-8 {
+            color: #fff;
+            font-size: 0.5em;
+            border-right: 0;
+            font-weight:lighter;
+            font-family: 'Oswald', sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main" style="background-color:transparent;">
+        <header>
+            <h1 class="logo" style="color:#fff;"> </h1>
+        </header>
+    </div>
+    <div>
+        <h1 style="width: 80%; line-height: 200px; margin:0 auto; color:rgb(255, 213, 1); font-size:3.5em; text-align: center;">
+            1.COVID-19 Timeline Museum
+        </h1>
+        <p style="width:80%;  margin:0 auto; ">
+            Coronaviruses are a large group of viruses commonly found in animals. These viruses can make people sick, usually with mild to moderate upper respiratory illness, similar to the common cold. Symptoms of coronavirus include a runny nose, cough, sore throat, and possibly a headache and fever, which can last for several days. Covid is a type of coronavirus, it is now the third year since the emergence of covid-19. This timeline provides information about select moments in the COVID-19 pandemic around the world beginning from its known origins to the end of 2021 to help us quickly review the history.<br><br><br>
+        </p>
+    </div>
+    <div class="options" style="margin-bottom:20px;">
+        <div class="option active">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="info">
+                    <h2 style="font-weight: bold;color: #E6E9ED; font-size: larger;">Late 2019</h2>
+                    <div class="sub">December 12: A cluster of patients in Wuhan, Hubei Providence, China begin to <br>experience shortness of breath and fever.<br>December 31: The World Health Organization China Country Office is informed <br>of a number cases of pneumonia of unknown etiology (unknown cause) detected in Wuhan,<br>Hubei Province. All cases connected to the Huanan Seafood Wholesale<br>Market in Wuhan.</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="info">
+                    <h2 style="font-weight: bold;color: #E6E9ED; font-size: larger;">Early 2020</h2>
+                    <div class="sub">January 7: Chinese authorities identify and isolate a novel coronavirus as the<br>causative agent of the outbreak.<br>January 22: The WHO confirms human-to-human spread of the novel coronavirus. <br>January 31: The WHO declares the coronavirus outbreak a Public Health <br>Emergency of International Concern.<br> February 23: As Italy becomes a global COVID-19 hotspot, the Italian government <br>issues Decree-Law No. 6<br>March 11: The WHO declares COVID-19 a pandemic.<br>April 10: The U.S. surpasses Italy as the global leader for reported deaths due to <br>COVID-19 (23,036 deaths)</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="">
+            <div class="label">
+                <div class="info">
+            <h2 style="font-weight: bold;color: #E6E9ED; font-size: larger;">Mid 2020</h2>
+                    <div class="sub">May 2: World Health Organization renews is emergency declaration from three <br>months prior calling the pandemic a global health crisis.<br> May 28: United States coronavirus (COVID-19) death toll surpasses 100,000. <br>June 8: The World Bank states that COVID-19 will plunge the Global Economy into <br>the worst recession since World War II. <br>June 11: The United States passes 2 million confirmed cases of the virus. <br>July 1: The European Union announces it will allow travelers from 14 countries <br>outside the bloc to visit EU countries, months after it shut its external borders in <br>response to the pandemic.</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="">
+            <div class="label">
+                <div class="info">
+                    <h2 style="font-weight: bold;color: #E6E9ED; font-size: larger;">Late 2020</h2>
+                    <div class="sub">September 22: United States coronavirus death toll surpasses 200,000.<br>October 7: New Zealand declares itself virus free.<br>December 1: Food and Drug Administration issues an Emergency Use <br>Authorization (EUA) for the first COVID-19 vaccine – the Pfizer-BioNTech COVID-19 vaccine.<br>December 18: The U.S.Food and Drug Administration issues an Emergency Use <br>Authorization for the second COVID-19 vaccine – the Moderna COVID-19 vaccine.<br>December 30: AstraZenica and University of Oxford’s vaccine approved for <br>emergency use in the UK and will begin distribution in the New Year.</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="">
+            <div class="label">
+                <div class="info">
+                    <h2 style="font-weight: bold;color: #E6E9ED; font-size: larger;">Early 2021</h2>
+                    <div class="sub">January 26: Worldwide COVID-19 cases surpass 100 million. <br>February 27: FDA approves emergency use authorization for Johnson and <br>Johnson one shot COVID-19 vaccine. <br>March 14: Several countries, including Ireland, Iceland, Denmark, and Norway <br>suspend dispensing AstaZeneca COVID vaccine over concerns of blood clotting.<br>March 30: According to a 120-page report from WHO, the novel coronavirus that <br>causes Covid-19 probably spread to people through an animal, and probably <br>started spreading among humans no more than a month or two before it was noticed in December of 2019.<br>April 17: The global tally of deaths from Covid-19 surpasses 3 million.</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="">
+            <div class="label">
+                <div class="info">
+                    <h2 style="font-weight: bold;color: #E6E9ED; font-size: larger;">Mid 2021</h2>
+                    <div class="sub">June 1: The Delta variant, first identified in India in late 2020, becomes the <br>dominant variant in the U.S. The variant kicks off a third wave of infections during <br>the summer of 2021.<br>July 27: After a substantial upswing in cases due to the Delta variant, CDC <br>releases updated guidance for everyone in areas with substantial or high <br>transmission to wear a mask while indoors.<br>August 6: CDC study shows that among people previously infected with <br>COVID-19, reinfection was less than half as likely among those who were <br>vaccinated after their first infection.<br>August 30: ACIP recommends Pfizer-BioNTech’s vaccine for people ages 16 <br>years and older.</div>
+                </div>
+            </div>
+        </div>
+        <div class="option" style="">
+            <div class="label">
+                <div class="info">
+                    <h2 style="font-weight: bold;color: #E6E9ED; font-size: larger;">Late 2021</h2>
+                    <div class="sub">October 21: CDC endorses ACIP recommendation for COVID-19 booster shots for <br>people who are 65 years and older, and people 18 years and older who live in <br>long-term care settings, have underlying medical conditions, and who live or work in high risk settings.<br>October 29: New CDC study provides further evidence that COVID-19 vaccines <br>offer higher protection than previous COVID-19 infection.<br>November 2: CDC endorses ACIP recommendation that children ages 5 to 11 <br>years be vaccinated against COVID-19 with the Pfizer-BioNTech pediatric vaccine.<br>November 26: World Health Organization classifies a new variant, Omicron, as a <br>variant of concern after it was first reported by scientists in South Africa. The <br>variant has several mutations in the spike protein that concern scientists around <br>the world.<br>November 29: CDC recommends that everyone over 18 years old who received a <br>Pfizer or Moderna vaccine receive a COVID-19 booster shot 6 months after <br>they are fully vaccinated.<br></div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <div id="fullpage2">
+        <div style="width:80%;margin:0 auto;margin-bottom:20px;">
+            <h1 style="width: 95%; line-height: 200px; margin:0 auto; color:rgb(255, 213, 1); font-size:3.5em; text-align: center;">
+                2.Map the spread of the Covid-19 around the world
+            </h1>
+        </div>
+        <div class="section" id="section10">
+            <iframe height="780" width="80%" class="embed-responsive-item" src="virus/index.html"
+                    frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"
+                    allowtransparency="yes"></iframe>
+        </div>
+
+        <div class="section" id="section11">
+            <iframe height="1000" width="80%" class="embed-responsive-item" src="virus/top10line/index.html"
+                    frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"
+                    allowtransparency="yes"></iframe>
+        </div>
+        <div>
+            <p style="width:80%;  margin:0 auto; ">
+                Until that day, the global total case number has exceeded 521 million, more than 6 million people have died in this global pandemic. The good news is the proportion of fully vaccinated people has reached nearly 60% of the world population, and it’s only going to rise.
+                <br>
+            </p>
+        </div>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="storytelling.html">Policy</a></li>
+            <li><a href="map1.html">UK</a></li>
+            <li class="active"><a href="map2.html">Global</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html">Home</a></li>
+
+        </ul>
+    </div>
+    <div class="main" style="background-color:transparent;position:relative;min-height:100px;">
+        <footer>
+            <!-- Scroll down -->
+            <div id="explore">
+                <b> Explore next part</b>
+            </div>
+
+            <a href="map1.html">
+                <div class="scroll-down"></div>
+            </a>
+        </footer>
+    </div>
+
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script>
+        $(".option").click(function(){
+           $(".option").removeClass("active");
+           $(this).addClass("active");  
+        });
+    </script>
+</body>
+</html>

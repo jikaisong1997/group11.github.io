@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Covid-19</title>
+    <link rel="icon" type="image/png" href="../assets/virus/dark-icon.png" id="dark-icon">
+    <link rel="icon" type="image/png" href="../assets/virus/light-icon.png" id="light-icon">
+
+    <!-- -----------------------------Stili----------------------------- -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../footer.css">
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@0.7.7/dist/leaflet.css" />
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="contenuto">
+
+            <div class="col-lg-20">
+                <div class="card bg-dark text-white">
+
+                        <h4 class="card-title" id="titolo">Global Infected Rate Trend, Updated data to 5/15/22</h4>
+                        <input type="range" min="0" max="0" value="0" class="slider" id="timeline">
+                        <div id="date"></div>
+                        <div id="mappa"></div>
+
+                </div>
+            </div>
+
+    </div>
+    <!-- <section id="storyline">
+        <iframe src="VaccMapSimp.html" height="1008px" width="100%" frameBorder="0" scrolling="yes"></iframe>
+        
+      </section>  -->
+
+
+
+    <!-- -----------------------------Scripts----------------------------- -->
+    <!-- Leaflet -->
+    <script src="https://unpkg.com/leaflet@0.7.7/dist/leaflet.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+    <script src="https://kit.fontawesome.com/909bdca332.js" crossorigin="anonymous"></script>
+    <!-- my scripts -->
+    <!-- <script src="../adatta_tema.js"></script> -->
+    <script src="country-by-population.js"></script>
+    <script src="countryCodes.js"></script>
+    <script src="filereader.js"></script>
+    <script src="script.js"></script>
+<script type="application/json" data-for="htmlwidget-9e0602728c383cf5490b">{"x":{"options":{"padding":100},"calls":[{"method":"addSelect","args":["Neighbourhood name"]},{"method":"setMapWidgetStyle","args":[{"background":"white"}]},{"method":"addProviderTiles","args":["CartoDB.Positron",{"errorTileUrl":"","noWrap":false,"opacity":1,"detectRetina":false},null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addLegend","args":[{"colors":["grey; border-radius: 50%; width:5.38px; height:5.38px; position: relative; left: 3.25px","grey; border-radius: 50%; width:8px; height:8px; position: relative; left: 1.94px","grey; border-radius: 50%; width:17.94px; height:17.94px; position: relative; left: -3.03px"],"labels":["<div style='display: inline-block;height: 5.38;position:relative; left: 12.56px; bottom: 10px;margin-top: 12px;line-height: 5.38px;'>10 deaths per 100k<\/div>","<div style='display: inline-block;height: 8;position:relative; left: 9.94px; bottom: 10px;margin-top: 12px;line-height: 8px;'>100 deaths per 100k<\/div>","<div style='display: inline-block;height: 17.94;position:relative; left: 0px; bottom: 10px;margin-top: 12px;line-height: 17.94px;'>500 deaths per 100k<\/div>"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"unknown","title":null,"extra":null,"layerId":null,"className":"info legend","group":null}]},{"method":"addLegend","args":[{"colors":["#67001F","#B2182B","#D6604D","#F4A582","#FDDBC7","#D1E5F0","#92C5DE","#4393C3","#2166AC","#053061"],"labels":["1st most deprived","2","3","4","5","6","7","8","9","10 least deprived"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"bottomright","type":"factor","title":null,"extra":null,"layerId":null,"className":"info legend","group":null}]},{"method":"removeDrawToolbar","args":[true]},{"method":"addEasyButton","args":[{"icon":"ion-arrow-shrink","title":"Reset View","onClick":"function(btn, map){ map.setView(map._initialCenter, map._initialZoom); }","position":"topleft"}]},{"method":"addControl","args":["<div>\n  <style>\n  .leaflet-control.map-sources { \n    transform: translate(-50%,20%);\n    position: absolute !important;\n    left: 10%;\n    text-align: left;\n    padding-left: 10px; \n    padding-right: 10px; \n    background: rgba(255,255,255,0.75);\n    font-weight: normal;\n    font-size: 10px;\n  }\n<\/style>\n  Data sources: ONS, MHCLG\n<\/div>","bottomleft",null,"map-sources"]}],"setView":[[51.489,-0.035],9.5,[]],"limits":{"lat":[49.8669425805308,60.8564629835451],"lng":[-8.64999581283993,1.76113751752772]}},"evals":["calls.12.args.0.onClick"],"jsHooks":{"render":[{"code":"function(el, x, data) {\n  return (function(el, x){ var map = this; map._initialCenter = map.getCenter(); map._initialZoom = map.getZoom();}).call(this.getMap(), el, x, data);\n}","data":null}]}}</script>
+
+</body>
+
+</html>

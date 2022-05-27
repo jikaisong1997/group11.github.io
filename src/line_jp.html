@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Monthly confrimed cases in Japan, since 2020</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+
+<script charset="utf-8" src="https://d3js.org/d3.v4.min.js"></script>
+<script charset="utf-8" src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+</head>
+<body>
+<div id="chartContainer">
+    <p id="charttitle">Japan's Newly confrimed rate</p>
+</div>
+
+<script>
+
+      d3.csv("./Newly_confirmed.csv", function(jData) {
+            console.log(jData[3]);
+            console.log(jData[5]);
+          
+            var svg = dimple.newSvg("#chartContainer", 320, 300); 
+            var myChart = new dimple.chart(svg, jData);  
+            myChart.setBounds(48, 20, 230, 120);            
+
+            myChart.defaultColors = [
+                new dimple.color("navy")     
+            ];
+
+            var x = myChart.addTimeAxis("x", "date", "%Y-%m-%d", "%Y-%m-%d"); 
+
+            var y = myChart.addMeasureAxis("y", "new_cases_per_million_j"); 
+            y.title = "newly confirmed cases";
+		    x.timeInterval = 4;
+
+            var s = myChart.addSeries(null, dimple.plot.line); 
+
+            myChart.draw(700); 
+x.shapes.selectAll("text").attr("transform",
+    function (d) {
+      return d3.select(this).attr("transform") + " translate(0, 20) rotate(-45)";
+    });
+
+            svg.selectAll("path.domain").style("stroke", "#CCC"); 
+            svg.selectAll("g.tick line").style("stroke", "#CCC");
+
+      });
+
+
+</script>
+
+</body>
+</html>
